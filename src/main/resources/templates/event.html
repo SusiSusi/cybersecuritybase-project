@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Event</title>
+    </head>
+    <body>
+
+        <h1>People who are coming to the event</h1>
+
+        <ul>
+            <li th:each="item : ${list}">
+                <span th:text="${item.name}"></span>
+            </li>
+        </ul>
+
+        <h2>Messages</h2>
+
+        <ul>
+            <li th:each="item : ${messageList}">
+                <span th:utext="${item.message}"></span>
+            </li>
+        </ul>
+
+        <h2>Add message</h2>
+
+        <form action="#" th:action="@{/message}" method="POST">
+            <p><label for="message">Message</label>: <input type="text" name="message" id="message"/></p>
+            <p><input type="submit" value="Submit" /></p>
+        </form>
+
+
+        <h3>Your information</h3>
+
+        <p th:each="item : ${signedUp}">
+            Name: <span th:text="${item.name}"></span></p>
+        <p th:each="item : ${signedUp}">
+            Address: <span th:text="${item.address}"></span></p>
+
+
+        <p><a th:href="@{/}">Log out</a></p>
+
+    </body>
+</html>

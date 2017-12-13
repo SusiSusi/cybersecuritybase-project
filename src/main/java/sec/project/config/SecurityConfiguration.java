@@ -20,7 +20,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // no real security at the moment
+        // how to fix A8-Cross-Site Request Forgery (CSRF), remove http.csrf().disable();
+        http.csrf().disable();
         http.authorizeRequests()
                 .anyRequest().permitAll();
     }
