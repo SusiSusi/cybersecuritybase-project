@@ -115,7 +115,7 @@ Step to  reproduce:
 2. Run the command: `mvn dependency-check:check` (this may take a few minutes)
 3. Now you can see how many vulnerabilities are in the application. You can find the vulnerabilities descriptions (for example CVE-2016-9878) using the Common Vulnerabilities and Exposures database at https://cve.mitre.org/index.html.
 
-#### How to fix:
+#### How to fix it:
 We take one example which is spring-boot-starter-parent -version. The application uses the version 1.4.2.RELEASE. Change the spring-boot-starter-parent -version to the latest version 1.5.9.RELEASE. This doesn't fix all the vulnerabilities which were found with maven check. In fact, if you change the version to the latest and then run the command `mvn dependency-check:check`, you will get even more vulnerabilities in what was earlier. 
 
     <parent>
