@@ -95,7 +95,7 @@ Go to event.html (in the path: src/main/resources and in the package: templates)
 Another way is that you validate the address field so it can not take characters < and >.
 
 ### A9-Using Components with Known Vulnerabilities
-Issue: A9-Using Components with Known Vulnerabilities. The application is using the old version of spring-boot-starter-parent. The application has its pom.xml above code which enables to analyze the used dependencies and indentify components with vulnerabilities. The code below assumes that you have an older version of Maven (Maven 3.0). If you have at least Maven version 3.1 you can change the version to 1.4.4. You can check your Maven version by using command: `mvn -version`.
+Issue: A9-Using Components with Known Vulnerabilities. The application is using the old version of spring-boot-starter-parent. The application has its pom.xml above code which enables to analyze the used dependencies and identify components with vulnerabilities. The code below assumes that you have an older version of Maven (Maven 3.0). If you have at least Maven version 3.1 you can change the version to 1.4.4. You can check your Maven version by using command: `mvn -version`.
 
             <plugin>
                 <groupId>org.owasp</groupId>
