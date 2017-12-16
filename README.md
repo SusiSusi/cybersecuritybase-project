@@ -93,3 +93,33 @@ Go to event.html (in the path: src/main/resources and in the package: templates)
         </ul>
 
 Another way is that you validate the address field so it can not take characters < and >.
+
+### A9-Using Components with Known Vulnerabilities
+Issue: A9-Using Components with Known Vulnerabilities. The application is using the old version of spring-boot-starter-parent. The application has its pom.xml above code which enables to analyze the used dependencies and indentify components with vulnerabilities. The code below assumes that you have an older version of Maven (Maven 3.0). If you have at least Maven version 3.1 you can change the version to 1.4.4. You can check your Maven version by using command: `mvn -version`.
+
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>1.4.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+Step to  reproduce:
+1. Go to the root of the application at the terminal
+2. Run the command: `mvn dependency-check:check` (this may take a few minutes)
+3. Now you can see how many vulnerabilities are in the application. You can find the vulnerabilities descriptions (for example CVE-2016-9878) using the Common Vulnerabilities and Exposures database at https://cve.mitre.org/index.html.
+
+#### How to fix:
+We take one example which is spring-boot-starter-parent -version. The application uses the version 1.4.2.RELEASE. Change the spring-boot-starter-parent -version to the latest version 1.5.9.RELEASE. This doesn't fix all the vulnerabilities which were found with maven check. In fact, if you change the version to the latest and then run the command `mvn dependency-check:check`, you will get even more vulnerabilities in what was earlier. 
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+    </parent>
